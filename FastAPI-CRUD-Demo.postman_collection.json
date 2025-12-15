@@ -76,6 +76,18 @@
           }
         },
         {
+          "name": "Estadísticas Edad",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/personas/estadisticas-edad",
+              "host": ["{{base_url}}"],
+              "path": ["personas", "estadisticas-edad"]
+            }
+          }
+        },
+        {
           "name": "Get Persona by ID",
           "request": {
             "method": "GET",
