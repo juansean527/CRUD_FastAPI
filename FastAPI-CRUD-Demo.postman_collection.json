@@ -83,6 +83,14 @@
             "url": { "raw": "{{base_url}}/personas/{{persona_id}}", "host": ["{{base_url}}"], "path": ["personas", "{{persona_id}}"] }
           }
         },
+      {
+        "name": "Delete Persona",
+        "request": {
+          "method": "DELETE",
+          "header": [],
+          "url": { "raw": "{{base_url}}/personas/{{persona_id}}", "host": ["{{base_url}}"], "path": ["personas", "{{persona_id}}"] }
+        }
+      },
         {
           "name": "Delete Persona",
           "request": {
