@@ -45,6 +45,18 @@
             }
           }
         },
+          {
+ "name": "Estadísticas Dominios",
+    "request": {
+    "method": "GET",
+    "header": [],
+    "url": {
+      "raw": "{{base_url}}/personas/contar-dominios",
+      "host": ["{{base_url}}"],
+      "path": ["personas", "contar-dominios"]
+     }
+        }
+        },
         {
           "name": "Poblar Personas",
           "request": {
@@ -84,11 +96,11 @@
           }
         },
       {
-        "name": "Delete Persona",
+        "name": "Delete Persona masivo",
         "request": {
           "method": "DELETE",
           "header": [],
-          "url": { "raw": "{{base_url}}/personas/{{persona_id}}", "host": ["{{base_url}}"], "path": ["personas", "{{persona_id}}"] }
+          "url": { "raw": "{{base_url}}/personas/reset", "host": ["{{base_url}}"], "path": ["personas", "reset"] }
         }
       },
         {
