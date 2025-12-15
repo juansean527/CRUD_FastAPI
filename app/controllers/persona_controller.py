@@ -67,6 +67,25 @@ async def reset_personas_endpoint(db: Session = Depends(get_db)):
         "deletedcount": deleted_count,
     }
 
+@router.get("/estadisticas-edad", status_code=200)
+async def estadisticas_edad_endpoint(db: Session = Depends(get_db)):
+    result = db.execute(
+        text("""
+            SELECT
+                AVG(TIMESTAMPDIFF(YEAR, birth_date, CURDATE())) AS edad_promedio,
+                MIN(TIMESTAMPDIFF(YEAR, birth_date, CURDATE())) AS edad_minima,
+                MAX(TIMESTAMPDIFF(YEAR, birth_date, CURDATE())) AS edad_maxima
+            FROM personas
+        """)
+    )
+    row = result.fetchone()
+    return {
+        "edad_promedio": float(row[0]) if row[0] is not None else None,
+        "edad_minima": int(row[1]) if row[1] is not None else None,
+        "edad_maxima": int(row[2]) if row[2] is not None else None,
+    }
+
+
 
 @router.get("/{persona_id}", response_model=PersonaRead)
 def get_persona(persona_id: int, db: Session = Depends(get_db)):
