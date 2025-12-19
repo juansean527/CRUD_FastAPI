@@ -104,7 +104,3 @@ def delete_persona(persona_id: int, db: Session = Depends(get_db)):
     """Delete a Persona by ID via service layer."""
     persona_service.delete_persona(db, persona_id)
     return None
-
-@router.get("/{persona_id}", response_model=PersonaRead)
-def get_persona(persona_id: int, db: Session = Depends(get_db)):
-    return persona_service.get_persona(db, persona_id)
