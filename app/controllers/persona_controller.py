@@ -99,6 +99,16 @@ async def buscar_personas_endpoint(termino: str, db: Session = Depends(get_db)):
     )
     return result.mappings().all()
 
+@router.get("/reporte/activos", status_code=200)
+async def reporte_activos_endpoint(db: Session = Depends(get_db)):
+    result = db.execute(
+        text("""
+            SELECT id, email, phone, is_active
+            FROM personas
+            WHERE is_active = 1
+        """)
+    )
+    return result.mappings().all()
 
 # --- RUTAS DINÁMICAS
 
