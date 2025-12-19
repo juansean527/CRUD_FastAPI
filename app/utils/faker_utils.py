@@ -30,7 +30,7 @@ def generar_personas(cantidad: int) -> List[Dict[str, Any]]:
             "firstname": firstname,
             "lastname": lastname,
             "email": email,
-            "phone": f"+57 {fake.msisdn()[3:13]}", 
+            "phone": f"+57 3{random.randint(100000000, 999999999)}", 
             "birthdate": fake.date_of_birth(minimum_age=18, maximum_age=80).strftime('%Y-%m-%d'),
             "isactive": random.choice([True, False]),
             "notes": fake.sentence(nb_words=6) if random.random() > 0.2 else None
