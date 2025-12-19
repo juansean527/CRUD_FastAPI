@@ -122,8 +122,33 @@
             "header": [],
             "url": { "raw": "{{base_url}}/personas/{{persona_id}}", "host": ["{{base_url}}"], "path": ["personas", "{{persona_id}}"] }
           }
+        },
+        {
+          "name": "Buscar Personas",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/personas/buscar/lopez",
+              "host": ["{{base_url}}"],
+              "path": ["personas", "buscar", "lopez"]
+            }
+          }
+        },
+        {
+          "name": "Reporte de Activos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/personas/reporte/activos",
+              "host": ["{{base_url}}"],
+              "path": ["personas", "reporte", "activos"]
+            }
+          }
         }
+
+      
       ]
     }
   ]
-}
