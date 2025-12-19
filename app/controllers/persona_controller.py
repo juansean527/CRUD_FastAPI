@@ -45,7 +45,11 @@ async def contar_dominios_endpoint(db: Session = Depends(get_db)):
 #-- Endpoint 2
 @router.post("/poblar", status_code=201)
 async def poblar_personas_endpoint(request: PoblarRequest, db: Session = Depends(get_db)):
-    personas_data = faker_utils.generar_personas(request.cantidad)
+    try:
+        personas_data = faker_utils.generar_personas(request.cantidad)
+    except ValueError as e:
+        # Devuelve un 400 Bad Request con el mensaje del error
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail=str(e))
     db.execute(text("DELETE FROM personas"))
     db.execute(text("ALTER TABLE personas AUTO_INCREMENT = 1"))
     db.execute(
