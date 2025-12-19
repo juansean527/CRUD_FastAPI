@@ -28,6 +28,7 @@ def list_personas(
 
 # --- RUTAS FIJAS NUEVAS DE LOS ENDPIONTS REQUERIDOS (ANTES de /{persona_id}) ---
 
+#-- Endpoint 1
 @router.get("/contar-dominios", status_code=200)
 async def contar_dominios_endpoint(db: Session = Depends(get_db)):
     result = db.execute(
@@ -40,6 +41,7 @@ async def contar_dominios_endpoint(db: Session = Depends(get_db)):
     dominios_count = {row[0]: row[1] for row in result}
     return dominios_count
 
+#-- Endpoint 2
 @router.post("/poblar", status_code=201)
 async def poblar_personas_endpoint(request: PoblarRequest, db: Session = Depends(get_db)):
     personas_data = faker_utils.generar_personas(request.cantidad)
@@ -56,6 +58,7 @@ async def poblar_personas_endpoint(request: PoblarRequest, db: Session = Depends
     db.commit()
     return {"message": f"{request.cantidad} usuarios creados exitosamente", "status": 201}
 
+#-- Endpoint 3
 @router.delete("/reset")
 async def reset_personas_endpoint(db: Session = Depends(get_db)):
     result = db.execute(text("DELETE FROM personas"))
@@ -67,6 +70,7 @@ async def reset_personas_endpoint(db: Session = Depends(get_db)):
         "deletedcount": deleted_count,
     }
 
+#-- Endpoint 4
 @router.get("/estadisticas-edad", status_code=200)
 async def estadisticas_edad_endpoint(db: Session = Depends(get_db)):
     result = db.execute(
@@ -85,6 +89,7 @@ async def estadisticas_edad_endpoint(db: Session = Depends(get_db)):
         "edad_maxima": int(row[2]) if row[2] is not None else None,
     }
 
+#-- Endpoint 5
 @router.get("/buscar/{termino}", status_code=200)
 async def buscar_personas_endpoint(termino: str, db: Session = Depends(get_db)):
     result = db.execute(
@@ -99,6 +104,7 @@ async def buscar_personas_endpoint(termino: str, db: Session = Depends(get_db)):
     )
     return result.mappings().all()
 
+#-- Endpoint 6
 @router.get("/reporte/activos", status_code=200)
 async def reporte_activos_endpoint(db: Session = Depends(get_db)):
     result = db.execute(
@@ -109,6 +115,7 @@ async def reporte_activos_endpoint(db: Session = Depends(get_db)):
         """)
     )
     return result.mappings().all()
+
 
 # --- RUTAS DINÁMICAS
 
