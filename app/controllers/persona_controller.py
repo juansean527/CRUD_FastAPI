@@ -100,6 +100,8 @@ async def buscar_personas_endpoint(termino: str, db: Session = Depends(get_db)):
     return result.mappings().all()
 
 
+# --- RUTAS DINÁMICAS
+
 @router.get("/{persona_id}", response_model=PersonaRead)
 def get_persona(persona_id: int, db: Session = Depends(get_db)):
     """Retrieve a Persona by ID via service layer."""
