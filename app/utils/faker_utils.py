@@ -15,8 +15,8 @@ def normalizar(texto: str) -> str:
 
 def generar_personas(cantidad: int) -> List[Dict[str, Any]]:
     """Genera personas para inserción masiva."""
-    if cantidad <= 0 or cantidad >= 1000:
-        raise ValueError("Cantidad debe estar entre 1 y 999")
+    if cantidad <= 0 or cantidad > 1000:
+        raise ValueError("Cantidad debe estar entre 1 y 1000")
     
     personas = []
     for _ in range(cantidad):
