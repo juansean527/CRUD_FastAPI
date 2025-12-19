@@ -6,7 +6,8 @@
   },
   "variable": [
     { "key": "base_url", "value": "http://localhost:8000" },
-    { "key": "persona_id", "value": "1" }
+    { "key": "persona_id", "value": "1" },
+    { "key": "termino", "value": "" }
   ],
   "item": [
     {
