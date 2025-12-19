@@ -46,7 +46,7 @@
           }
         },
           {
- "name": "Estadísticas Dominios",
+    "name": "Estadísticas Dominios",
     "request": {
     "method": "GET",
     "header": [],
@@ -129,9 +129,9 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "{{base_url}}/personas/buscar/lopez",
+              "raw": "{{base_url}}/personas/buscar/{termino}",
               "host": ["{{base_url}}"],
-              "path": ["personas", "buscar", "lopez"]
+              "path": ["personas", "buscar", "{termino}"]
             }
           }
         },
