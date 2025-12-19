@@ -85,6 +85,19 @@ async def estadisticas_edad_endpoint(db: Session = Depends(get_db)):
         "edad_maxima": int(row[2]) if row[2] is not None else None,
     }
 
+@router.get("/buscar/{termino}", status_code=200)
+async def buscar_personas_endpoint(termino: str, db: Session = Depends(get_db)):
+    result = db.execute(
+        text("""
+            SELECT *
+            FROM personas
+            WHERE first_name LIKE :t
+               OR last_name LIKE :t
+               OR email LIKE :t
+        """),
+        {"t": f"%{termino}%"}
+    )
+    return result.mappings().all()
 
 
 @router.get("/{persona_id}", response_model=PersonaRead)
