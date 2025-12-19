@@ -26,7 +26,8 @@ def list_personas(
     """List Personas with pagination via service layer."""
     return persona_service.list_personas(db, skip=skip, limit=limit)
 
-# --- RUTAS FIJAS NUEVAS DE LOS ENDPIONTS REQUERIDOS (ANTES de /{persona_id}) ---
+
+# --- RUTAS FIJAS NUEVAS DE LOS ENDPONTS REQUERIDOS (ANTES de /{persona_id}) ---
 
 #-- Endpoint 1
 @router.get("/contar-dominios", status_code=200)
