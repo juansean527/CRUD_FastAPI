@@ -129,9 +129,9 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "{{base_url}}/personas/buscar/{termino}",
+              "raw": "{{base_url}}/personas/buscar/{{termino}}",
               "host": ["{{base_url}}"],
-              "path": ["personas", "buscar", "{termino}"]
+              "path": ["personas", "buscar", "{{termino}}"]
             }
           }
         },
