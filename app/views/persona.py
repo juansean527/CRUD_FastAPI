@@ -46,3 +46,10 @@ class PersonaRead(BaseModel):
 class PoblarRequest(BaseModel):
     cantidad: int
 
+class PersonaActivaRead(BaseModel):
+    id: int
+    email: EmailStr
+    phone: str | None
+    is_active: bool
+
+    model_config = {"from_attributes": True}
